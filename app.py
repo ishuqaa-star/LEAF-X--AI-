@@ -10,6 +10,10 @@ client = OpenAI(api_key=api_key)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+api_key = st.secrets["OPENAI_API_KEY"]
+
+client = OpenAI(api_key=api_key)
+
 if not api_key:
     st.error("❌ OPENAI_API_KEY is missing. Add it in Streamlit Secrets.")
     st.stop()
