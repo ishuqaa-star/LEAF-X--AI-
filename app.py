@@ -1,10 +1,12 @@
+import openai
 import streamlit as st
 from openai import OpenAI
 import base64
 import os
 
 # 🔐 Use environment variable (SAFE method)
-client = OpenAI(api_key=os.getenv("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"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(
     page_title="LEAF X - Plant AI",
