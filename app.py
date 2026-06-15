@@ -1,12 +1,20 @@
 import openai
 import streamlit as st
-from openai import OpenAI
+from openai import OpenAI, api_key
 import base64
 import os
+
+client = OpenAI(api_key=api_key)
 
 # 🔐 Use environment variable (SAFE method)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    st.error("❌ OPENAI_API_KEY is missing. Add it in Streamlit Secrets.")
+    st.stop()
+
+client = OpenAI(api_key=api_key)
 
 st.set_page_config(
     page_title="LEAF X - Plant AI",
