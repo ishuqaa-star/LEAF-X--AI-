@@ -1,3 +1,4 @@
+--only-binary=:all:
 streamlit
 openai
 pillow==10.2.0
